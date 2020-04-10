@@ -20,6 +20,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE usersignup (ID INTEGER PRIMARY  KEY AUTOINCREMENT, name TEXT, email TEXT, password TEXT)");
+
     }
 
     @Override

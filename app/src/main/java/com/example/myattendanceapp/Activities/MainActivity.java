@@ -13,15 +13,19 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
+import com.example.myattendanceapp.Data.AttendanceDatabaseHelper;
 import com.example.myattendanceapp.Data.LoginDatabaseHelper;
 import com.example.myattendanceapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
     protected LoginDatabaseHelper db;
-    protected String email;
+    protected AttendanceDatabaseHelper adb;
+    protected String email,name;
     protected CalendarView calendarView;
     protected Button buttonMarkPresent, buttonMarkAbsent;
+    String status;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
         db = new LoginDatabaseHelper(this);
-
+        adb = new AttendanceDatabaseHelper(this);
         calendarView = findViewById(R.id.main_calenderView);
         buttonMarkAbsent = findViewById(R.id.buttonMarkAbsent);
         buttonMarkPresent = findViewById(R.id.buttonMarkPresent);
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         buttonMarkPresent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                status = "Present";
+                updateAttendance(name,email, String.valueOf(calendarView.getDate()),status);
 
             }
         });
@@ -47,16 +53,29 @@ public class MainActivity extends AppCompatActivity {
         buttonMarkAbsent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                status = "Absent";
+                updateAttendance(name,email, String.valueOf(calendarView.getDate()),status);
             }
         });
 
-        String name = db.getUser(email);
+
+       name  = db.getUser(email);
         getSupportActionBar().setTitle("Welcome, "+name);
 
         Toast.makeText(this, "Register Your Today's Attendance", Toast.LENGTH_LONG).show();
     }
 
+    private  void updateAttendance(String name,String email, String date, String status){
+
+        boolean val = adb.markAttendance(name,email,date,status);
+        if(val){
+            Toast.makeText(this,"Thank YOU! Your Attendance has been Registered",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this,"Sorry! You have already marked your Attendance for Today Come Back Tomorrow",Toast.LENGTH_LONG).show();
+        }
+
+    }
     private void logout() {
 
         Intent logout_intent = new Intent(this, LoginActivity.class);
