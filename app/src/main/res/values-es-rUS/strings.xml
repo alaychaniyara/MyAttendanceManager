@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyAttendanceApp</string>
+    <string name="login_label">Nombre de usuario</string>
+    <string name="login_label_password">Contraseña</string>
+    <string name="login_app_name">Mi asistencia</string>
+    <string name="login_editText_username">" Utilice el correo electrónico @ uncc.edu"</string>
+    <string name="login_editText_password">"Introducir la contraseña "</string>
+    <string name="login_button_Login">" Iniciar sesión"</string>
+    <string name="login_button_signup">"Regístrate "</string>
+    <string name="signup_button_signup">Registrarse</string>
+    <string name="signup_editText_password">"Introducir la contraseña "</string>
+    <string name="signup_editText_username">Ingrese el correo electrónico \"@ uncc.edu\"</string>
+    <string name="signup_label">Email</string>
+    <string name="signup_label_password">Contraseña</string>
+    <string name="signup_label_name">Nombre</string>
+    <string name="signup_edittext_name">Ingrese su nombre</string>
+</resources>

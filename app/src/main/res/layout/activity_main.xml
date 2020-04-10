@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".Activities.MainActivity">
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="125dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Mark Your Today's Attendance!!"
+        android:textColor="@android:color/background_light"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/calendercontainer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewHeader"
+        android:layout_alignParentLeft="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <CalendarView
+            android:id="@+id/main_calenderView"
+            android:layout_width="wrap_content"
+            android:layout_height="320dp"
+            android:background="@drawable/calender_background">
+
+
+        </CalendarView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonMarkPresent"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendercontainer"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:text="@string/buttonmarkpresent"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/buttonMarkAbsent"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendercontainer"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_toEndOf="@+id/buttonMarkPresent"
+        android:layout_toRightOf="@+id/buttonMarkPresent"
+        android:background="@drawable/button_background"
+        android:text="@string/buttonMarkAbsent"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>

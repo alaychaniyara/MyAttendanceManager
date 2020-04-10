@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MyAttendanceApp</string>
+    <string name="login_label_password">Password</string>
+    <string name="login_app_name">My Attendance</string>
+    <string name="login_label">Username</string>
+    <string name="login_editText_username">Please use @uncc.edu email</string>
+    <string name="login_editText_password">Enter Password</string>
+    <string name="login_button_Login">Login</string>
+    <string name="login_button_signup">Signup</string>
+
+
+    <string name="signup_button_signup">Register</string>
+    <string name="signup_editText_password">Enter Password</string>
+    <string name="signup_editText_username">Enter \"@uncc.edu\" Email</string>
+    <string name="signup_label">Email</string>
+    <string name="signup_label_password">Password</string>
+    <string name="signup_label_name">Name</string>
+    <string name="signup_edittext_name">Enter Name</string>
+    <string name="textViewEnglish">English</string>
+    <string name="textViewEspañol">Español</string>
+    <string name="buttonmarkpresent">Mark Present</string>
+    <string name="buttonMarkAbsent">Mark Absent</string>
+    <string name="buttonDatePicker">Select Date</string>
+    <string name="textViewSelectViewLabel">Pick a Date to See Course Attendance on that Day</string>
+</resources>
