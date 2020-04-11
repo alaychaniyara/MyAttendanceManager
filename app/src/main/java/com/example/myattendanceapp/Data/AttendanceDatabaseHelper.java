@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AttendanceDatabaseHelper extends SQLiteOpenHelper {
 
@@ -73,6 +77,46 @@ public class AttendanceDatabaseHelper extends SQLiteOpenHelper {
             return  true;
         else
             return  false;
+    }
+
+    public ArrayList<Attendance_List> getAllAttendance(String date)
+    {
+        ArrayList<Attendance_List> lists = new ArrayList<Attendance_List>();
+        String[] columnstoget = {COL_2, COL_3, COL_5};
+        db = getReadableDatabase();
+
+        String selection = COL_4 + "=?";
+        String selctionArgs[] = {date};
+
+        Cursor cursor = db.query(TABLE_NAME,columnstoget,selection,selctionArgs,null,null,COL_5);
+            if(cursor!=null)
+            {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast())
+                {
+                    Attendance_List attendance_list = new Attendance_List();
+
+                    attendance_list.setName(cursor.getString(cursor.getColumnIndex(COL_2)));
+
+                    attendance_list.email = cursor.getString(cursor.getColumnIndex(COL_3));
+
+                    attendance_list.status = cursor.getString(cursor.getColumnIndex(COL_5));
+
+                    lists.add(attendance_list);
+                    cursor.moveToNext();
+                }
+            }
+
+        cursor.close();
+        db.close();
+        if(lists.size()>=0) {
+            return lists;
+        }
+        else
+        {
+            lists.clear();
+        }
+        return lists;
     }
 }
 

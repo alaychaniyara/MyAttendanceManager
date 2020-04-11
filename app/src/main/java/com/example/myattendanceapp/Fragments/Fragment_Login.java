@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +70,8 @@ public class  Fragment_Login extends Fragment {
         db = new LoginDatabaseHelper(this.getContext());
 
         String locale = ((LoginActivity) getActivity()).getCurrentLocale();
-
-        if(locale.equals("en"))
+        Log.d("locale",locale);
+        if(locale.equals("en_US")||locale.equals("en"))
         {
             textViewEnglish.setTextColor(Color.GREEN);
         }

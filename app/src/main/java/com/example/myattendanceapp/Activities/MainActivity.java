@@ -1,10 +1,14 @@
 package com.example.myattendanceapp.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,15 +21,19 @@ import com.example.myattendanceapp.Data.AttendanceDatabaseHelper;
 import com.example.myattendanceapp.Data.LoginDatabaseHelper;
 import com.example.myattendanceapp.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     protected LoginDatabaseHelper db;
     protected AttendanceDatabaseHelper adb;
-    protected String email,name;
+    protected String email,name,date;
     protected CalendarView calendarView;
     protected Button buttonMarkPresent, buttonMarkAbsent;
     String status;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +48,33 @@ public class MainActivity extends AppCompatActivity {
 
         calendarView.setMinDate(calendarView.getDate());
         calendarView.setMaxDate(calendarView.getDate());
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+       date = sdf.format(new Date(calendarView.getDate()));
+        Log.d("Date",date);
 
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+               month++;
+                if((month)<10)
+                {
+                    date = "0"+month+"/"+dayOfMonth+"/"+year;
+                    Log.d("DDDD", date);
+                    Toast.makeText(MainActivity.this, date, Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    date = month+"/"+dayOfMonth+"/"+year;}
+                Toast.makeText(MainActivity.this, month+"/"+dayOfMonth+"/"+year, Toast.LENGTH_SHORT).show();
+            }
+        });
         buttonMarkPresent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 status = "Present";
-                updateAttendance(name,email, String.valueOf(calendarView.getDate()),status);
+                updateAttendance(name,email, date,status);
+
 
             }
         });
@@ -54,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 status = "Absent";
-                updateAttendance(name,email, String.valueOf(calendarView.getDate()),status);
+                updateAttendance(name,email, date,status);
             }
         });
 

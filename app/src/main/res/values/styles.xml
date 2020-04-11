@@ -10,4 +10,9 @@
     <style name="HeaderBar">
         <item name="android:background">#303F9F</item>
     </style>
+
+    <style name="TabLayoutStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

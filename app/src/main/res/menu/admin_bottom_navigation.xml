@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_recents"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/admin_attendance_option_all" />
+    <item
+        android:id="@+id/action_favorites"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_secure"
+        android:title="@string/admin_attendance_option_Present" />
+    <item
+        android:id="@+id/action_nearby"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@android:drawable/presence_audio_away"
+        android:title="@string/admin_attendance_option_Absent" />
+</menu>

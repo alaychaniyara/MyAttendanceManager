@@ -22,4 +22,10 @@
     <string name="buttonMarkAbsent">Mark Absent</string>
     <string name="buttonDatePicker">Select Date</string>
     <string name="textViewSelectViewLabel">Pick a Date to See Course Attendance on that Day</string>
+    <string name="admin_attendance_option_all">ALL</string>
+    <string name="admin_attendance_option_Present">Present</string>
+    <string name="admin_attendance_option_Absent">Absent</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
